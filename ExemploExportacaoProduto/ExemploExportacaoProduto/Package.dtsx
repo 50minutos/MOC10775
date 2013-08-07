@@ -1,0 +1,435 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/30/2013 2:53:57 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JOKER"
+  DTS:CreatorName="JOKER\agnaldo"
+  DTS:DTSID="{447BCE45-1DA5-417F-B466-771CBDFEAC99}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{94B6C494-1D53-4924-A4D8-52A8CD1A850D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D637807B-0111-49E3-AB39-D77C8C20C7A4}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\agnaldo\Desktop\10775\SSIS_PRODUTO.TXT">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COD_PRODUTO"
+              DTS:DTSID="{4232FAB2-B34A-44C0-A8F1-8A7CBBB0C952}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOME_PRODUTO"
+              DTS:DTSID="{8F66EB7E-DF7B-47A8-B5A0-C5526E543BC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="131"
+              DTS:DataPrecision="9"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRECO_PRODUTO"
+              DTS:DTSID="{22445A29-9166-4654-BF82-BAC26837F15C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COD_TIPO_PRODUTO"
+              DTS:DTSID="{0A78999E-7871-468C-A092-E1499E11A4F2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C035408B-CACE-4D99-82DA-95E67A5BA512}"
+      DTS:ObjectName="LocalHost.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB;Integrated Security=True;Application Name=SSIS-Package-{C035408B-CACE-4D99-82DA-95E67A5BA512}LocalHost.DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{22483815-A545-4110-A037-8FFAADAA9554}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DB DBO PRODUTO"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="DB DBO PRODUTO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"dbo"."PRODUTO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DB DBO PRODUTO.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_PRODUTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[COD_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_PRODUTO]"
+                      name="COD_PRODUTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[NOME_PRODUTO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[NOME_PRODUTO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[NOME_PRODUTO]"
+                      name="NOME_PRODUTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[PRECO_PRODUTO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[PRECO_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[PRECO_PRODUTO]"
+                      name="PRECO_PRODUTO"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_TIPO_PRODUTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[COD_TIPO_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_TIPO_PRODUTO]"
+                      name="COD_TIPO_PRODUTO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[COD_PRODUTO]"
+                      dataType="i4"
+                      name="COD_PRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[NOME_PRODUTO]"
+                      dataType="wstr"
+                      length="50"
+                      name="NOME_PRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[PRECO_PRODUTO]"
+                      dataType="numeric"
+                      name="PRECO_PRODUTO"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].ExternalColumns[COD_TIPO_PRODUTO]"
+                      dataType="i4"
+                      name="COD_TIPO_PRODUTO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[COD_PRODUTO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[COD_PRODUTO]"
+                      name="COD_PRODUTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[NOME_PRODUTO]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[NOME_PRODUTO]"
+                      name="NOME_PRODUTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[PRECO_PRODUTO]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[PRECO_PRODUTO]"
+                      name="PRECO_PRODUTO"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[COD_TIPO_PRODUTO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[COD_TIPO_PRODUTO]"
+                      name="COD_TIPO_PRODUTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SSIS PRODUTO TXT"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1046"
+              name="SSIS PRODUTO TXT">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SSIS PRODUTO TXT.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].Columns[COD_PRODUTO]"
+                      cachedDataType="i4"
+                      cachedName="COD_PRODUTO"
+                      externalMetadataColumnId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[COD_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_PRODUTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].Columns[NOME_PRODUTO]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="NOME_PRODUTO"
+                      externalMetadataColumnId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[NOME_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[NOME_PRODUTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].Columns[PRECO_PRODUTO]"
+                      cachedDataType="numeric"
+                      cachedName="PRECO_PRODUTO"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[PRECO_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[PRECO_PRODUTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].Columns[COD_TIPO_PRODUTO]"
+                      cachedDataType="i4"
+                      cachedName="COD_TIPO_PRODUTO"
+                      externalMetadataColumnId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[COD_TIPO_PRODUTO]"
+                      lineageId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output].Columns[COD_TIPO_PRODUTO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[COD_PRODUTO]"
+                      dataType="i4"
+                      name="COD_PRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[NOME_PRODUTO]"
+                      dataType="wstr"
+                      length="50"
+                      name="NOME_PRODUTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[PRECO_PRODUTO]"
+                      dataType="numeric"
+                      name="PRECO_PRODUTO"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input].ExternalColumns[COD_TIPO_PRODUTO]"
+                      dataType="i4"
+                      name="COD_TIPO_PRODUTO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
+              endId="Package\Data Flow Task\SSIS PRODUTO TXT.Inputs[Flat File Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Data Flow Task\DB DBO PRODUTO.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="529,130" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\SSIS PRODUTO TXT"
+          TopLeft="144,183.333333333333" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Data Flow Task\DB DBO PRODUTO"
+          TopLeft="132,29.3333333333333" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
+          TopLeft="216,71.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,112"
+              Start="0,0"
+              End="15,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52"
+                    Point2="0,56"
+                    Point3="4,56" />
+                  <mssgle:LineSegment
+                    End="11,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,56"
+                    Point2="15,56"
+                    Point3="15,60" />
+                  <mssgle:LineSegment
+                    End="15,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-0.5,61,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DB DBO PRODUTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
